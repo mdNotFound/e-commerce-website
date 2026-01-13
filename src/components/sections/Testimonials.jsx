@@ -57,9 +57,19 @@ const Testimonials = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={0.1}>
-            <h2 className="text-display-md font-display font-bold text-cream">
+            <h2 className="text-display-md font-display font-bold text-cream mb-6">
               Loved by Thousands
             </h2>
+          </ScrollReveal>
+          
+          {/* Sample Reviews Badge */}
+          <ScrollReveal delay={0.2}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ink-900/80 border border-ink-700/50 backdrop-blur-sm">
+              <svg className="w-4 h-4 text-ember" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span className="text-sm font-body text-cream/60">Sample Reviews · Real testimonials coming soon</span>
+            </div>
           </ScrollReveal>
         </div>
         
