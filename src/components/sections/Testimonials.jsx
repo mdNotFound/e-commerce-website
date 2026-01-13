@@ -92,18 +92,16 @@ const Testimonials = () => {
                 }}
                 className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-16"
               >
-                {/* Avatar */}
+                {/* Avatar - Initial Circle */}
                 <motion.div
-                  className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-ember/30 mb-8"
+                  className="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-ember/30 mb-8 flex items-center justify-center bg-ink-800"
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <img
-                    src={currentTestimonial.avatar}
-                    alt={currentTestimonial.name}
-                    className="w-full h-full object-cover"
-                  />
+                  <span className="text-2xl md:text-3xl font-display font-bold text-ember">
+                    {currentTestimonial.name.charAt(0)}
+                  </span>
                 </motion.div>
                 
                 {/* Stars */}
