@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  * {
+    @apply antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply bg-ink text-cream font-body overflow-x-hidden;
+  }
+  
+  ::selection {
+    @apply bg-ember/30 text-cream;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-ink-900;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-700 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-600;
+  }
+}
+
+@layer components {
+  /* Gradient text utility */
+  .gradient-text {
+    @apply bg-gradient-to-r from-cream via-ember-300 to-cream bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+  
+  /* Glass morphism */
+  .glass {
+    @apply bg-ink-900/60 backdrop-blur-xl border border-ink-800/50;
+  }
+  
+  .glass-light {
+    @apply bg-cream/5 backdrop-blur-xl border border-cream/10;
+  }
+  
+  /* Smooth image wrapper */
+  .image-wrapper {
+    @apply overflow-hidden;
+  }
+  
+  .image-wrapper img {
+    @apply transition-transform duration-700 ease-smooth;
+  }
+  
+  .image-wrapper:hover img {
+    @apply scale-105;
+  }
+  
+  /* Text reveal animation */
+  .text-reveal {
+    @apply overflow-hidden;
+  }
+  
+  .text-reveal span {
+    @apply inline-block;
+  }
+  
+  /* Magnetic button base */
+  .magnetic-wrap {
+    @apply relative inline-flex;
+  }
+  
+  /* Line decoration */
+  .line-through-text {
+    @apply relative;
+  }
+  
+  .line-through-text::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-full h-px bg-current origin-left scale-x-0 transition-transform duration-500 ease-smooth;
+  }
+  
+  .line-through-text:hover::after {
+    @apply scale-x-100;
+  }
+  
+  /* Noise overlay */
+  .noise-overlay {
+    @apply pointer-events-none fixed inset-0 z-50 opacity-[0.015];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  /* Perspective utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  /* Animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-800 { animation-delay: 800ms; }
+  
+  /* Mask utilities */
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+  
+  .mask-fade-t {
+    mask-image: linear-gradient(to top, black 60%, transparent 100%);
+  }
+  
+  /* Text balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Page transition styles */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms ease-out, transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+/* Loader styles */
+.loader-wrapper {
+  @apply fixed inset-0 z-[100] bg-ink flex items-center justify-center;
+}
+
+.loader-logo {
+  @apply text-6xl font-display font-bold text-cream;
+}
+
+/* Marquee pause on hover */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
